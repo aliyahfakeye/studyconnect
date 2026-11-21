@@ -1,0 +1,501 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-primary-border: var(--sidebar-primary-border);
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-accent-border: var(--sidebar-accent-border);
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* LIGHT MODE */
+:root {
+  --button-outline: rgba(0, 0, 0, 0.1);
+  --badge-outline: rgba(0, 0, 0, 0.05);
+
+  /* Automatic computation of border around primary / danger buttons */
+  --opaque-button-border-intensity: -8; /* In terms of percentages */
+
+  /* Backgrounds applied on top of other backgrounds when hovered/active */
+  --elevate-1: rgba(0, 0, 0, 0.03);
+  --elevate-2: rgba(0, 0, 0, 0.08);
+
+  --background: red; /*replace with H S L */
+
+  --foreground: red; /*replace with H S L */
+
+  --border: red; /*replace with H S L */
+
+  --card: red; /*replace with H S L */
+
+  --card-foreground: red; /*replace with H S L */
+
+  --card-border: red; /*replace with H S L */
+
+  --sidebar: red; /*replace with H S L */
+
+  --sidebar-foreground: red; /*replace with H S L */
+
+  --sidebar-border: red; /*replace with H S L */
+
+  --sidebar-primary: red; /*replace with H S L */
+
+  --sidebar-primary-foreground: red; /*replace with H S L */
+
+  --sidebar-accent: red; /*replace with H S L */
+
+  --sidebar-accent-foreground: red; /*replace with H S L */
+
+  --sidebar-ring: red; /*replace with H S L */
+
+  --popover: red; /*replace with H S L */
+
+  --popover-foreground: red; /*replace with H S L */
+
+  --popover-border: red; /*replace with H S L */
+
+  --primary: red; /*replace with H S L */
+
+  --primary-foreground: red; /*replace with H S L */
+
+  --secondary: red; /*replace with H S L */
+
+  --secondary-foreground: red; /*replace with H S L */
+
+  --muted: red; /*replace with H S L */
+
+  --muted-foreground: red; /*replace with H S L */
+
+  --accent: red; /*replace with H S L */
+
+  --accent-foreground: red; /*replace with H S L */
+
+  --destructive: red; /*replace with H S L */
+
+  --destructive-foreground: red; /*replace with H S L */
+
+  --input: red; /*replace with H S L */
+  --ring: red; /*replace with H S L */
+  --chart-1: red; /*replace with H S L */
+  --chart-2: red; /*replace with H S L */
+  --chart-3: red; /*replace with H S L */
+  --chart-4: red; /*replace with H S L */
+  --chart-5: red; /*replace with H S L */
+
+  --app-font-sans: 'Inter', sans-serif;
+  --app-font-serif: Georgia, serif;
+  --app-font-mono: Menlo, monospace;
+  --radius: 0.5rem; /* 8px */
+  --shadow-2xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0); /*replace with H S L */
+  --shadow-xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0); /*replace with H S L */
+  --shadow-sm:
+    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
+    0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+  --shadow:
+    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
+    0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+  --shadow-md:
+    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
+    0px 2px 4px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+  --shadow-lg:
+    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
+    0px 4px 6px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+  --shadow-xl:
+    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
+    0px 8px 10px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+  --shadow-2xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  /* Automatically computed borders - intensity can be controlled by the user by the --opaque-button-border-intensity setting */
+
+  /* Fallback for older browsers */
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(
+    from hsl(var(--sidebar-primary)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
+
+  /* Fallback for older browsers */
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(
+    from hsl(var(--sidebar-accent)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
+
+  /* Fallback for older browsers */
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(
+    from hsl(var(--primary)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
+
+  /* Fallback for older browsers */
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(
+    from hsl(var(--secondary)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
+
+  /* Fallback for older browsers */
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(
+    from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) /
+      alpha
+  );
+
+  /* Fallback for older browsers */
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(
+    from hsl(var(--accent)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
+
+  /* Fallback for older browsers */
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(
+    from hsl(var(--destructive)) h s
+      calc(l + var(--opaque-button-border-intensity)) / alpha
+  );
+}
+
+.dark {
+  --button-outline: rgba(255, 255, 255, 0.1);
+  --badge-outline: rgba(255, 255, 255, 0.05);
+
+  --opaque-button-border-intensity: 9; /* In terms of percentages */
+
+  /* Backgrounds applied on top of other backgrounds when hovered/active */
+  --elevate-1: rgba(255, 255, 255, 0.04);
+  --elevate-2: rgba(255, 255, 255, 0.09);
+
+  --background: red; /*replace with H S L */
+
+  --foreground: red; /*replace with H S L */
+
+  --border: red; /*replace with H S L */
+
+  --card: red; /*replace with H S L */
+
+  --card-foreground: red; /*replace with H S L */
+
+  --card-border: red; /*replace with H S L */
+
+  --sidebar: red; /*replace with H S L */
+
+  --sidebar-foreground: red; /*replace with H S L */
+
+  --sidebar-border: red; /*replace with H S L */
+
+  --sidebar-primary: red; /*replace with H S L */
+
+  --sidebar-primary-foreground: red; /*replace with H S L */
+
+  --sidebar-accent: red; /*replace with H S L */
+
+  --sidebar-accent-foreground: red; /*replace with H S L */
+
+  --sidebar-ring: red; /*replace with H S L */
+
+  --popover: red; /*replace with H S L */
+
+  --popover-foreground: red; /*replace with H S L */
+
+  --popover-border: red; /*replace with H S L */
+
+  --primary: red; /*replace with H S L */
+
+  --primary-foreground: red; /*replace with H S L */
+
+  --secondary: red; /*replace with H S L */
+
+  --secondary-foreground: red; /*replace with H S L */
+
+  --muted: red; /*replace with H S L */
+
+  --muted-foreground: red; /*replace with H S L */
+
+  --accent: red; /*replace with H S L */
+
+  --accent-foreground: red; /*replace with H S L */
+
+  --destructive: red; /*replace with H S L */
+
+  --destructive-foreground: red; /*replace with H S L */
+
+  /* Used as the border around inputs. Dark mode: Should be a border that is light enough to have high contrast when rendered on a --card background. More contrast than standard --border */
+  --input: red; /*replace with H S L */
+  --ring: red; /*replace with H S L */
+  --chart-1: red; /*replace with H S L */
+  --chart-2: red; /*replace with H S L */
+  --chart-3: red; /*replace with H S L */
+  --chart-4: red; /*replace with H S L */
+  --chart-5: red; /*replace with H S L */
+
+  --shadow-2xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
+  --shadow-xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
+  --shadow-sm:
+    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
+    0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+  --shadow:
+    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
+    0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+  --shadow-md:
+    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
+    0px 2px 4px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+  --shadow-lg:
+    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
+    0px 4px 6px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+  --shadow-xl:
+    0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0),
+    0px 8px 10px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+  --shadow-2xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/**
+ * Using the elevate system.
+ * Automatic contrast adjustment.
+ *
+ * <element className="hover-elevate" />
+ * <element className="active-elevate-2" />
+ *
+ * // Using the tailwind utility when a data attribute is "on"
+ * <element className="toggle-elevate data-[state=on]:toggle-elevated" />
+ * // Or manually controlling the toggle state
+ * <element className="toggle-elevate toggle-elevated" />
+ *
+ * Elevation systems have to handle many states.
+ * - not-hovered, vs. hovered vs. active  (three mutually exclusive states)
+ * - toggled or not
+ * - focused or not (this is not handled with these utilities)
+ *
+ * Even without handling focused or not, this is six possible combinations that
+ * need to be distinguished from eachother visually.
+ */
+@layer utilities {
+  /* Hide ugly search cancel button in Chrome until we can style it properly */
+  input[type='search']::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+
+  /* Placeholder styling for contentEditable div */
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+
+  /* .no-default-hover-elevate/no-default-active-elevate is an escape hatch so consumers of
+   * buttons/badges can remove the automatic brightness adjustment on interactions
+   * and program their own. */
+  .no-default-hover-elevate {
+  }
+
+  .no-default-active-elevate {
+  }
+
+  /**
+   * Toggleable backgrounds go behind the content. Hoverable/active goes on top.
+   * This way they can stack/compound. Both will overlap the parent's borders!
+   * So borders will be automatically adjusted both on toggle, and hover/active,
+   * and they will be compounded.
+   */
+  .toggle-elevate::before,
+  .toggle-elevate-2::before {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    /*border-radius: inherit;   match rounded corners */
+    border-radius: inherit;
+    z-index: -1;
+    /* sits behind content but above backdrop */
+  }
+
+  .toggle-elevate.toggle-elevated::before {
+    background-color: var(--elevate-2);
+  }
+
+  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
+  .border.toggle-elevate::before {
+    inset: -1px;
+  }
+
+  /* Does not work on elements with overflow:hidden! */
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative;
+    z-index: 0;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    /*border-radius: inherit;   match rounded corners */
+    border-radius: inherit;
+    z-index: 999;
+    /* sits in front of content */
+  }
+
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+
+  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
+    inset: -1px;
+  }
+}
+
+:root {
+  --background: 42 38% 95%;
+  --foreground: 218 27% 19%;
+  --border: 36 20% 83%;
+  --card: 42 35% 98%;
+  --card-foreground: 218 27% 19%;
+  --card-border: 36 20% 83%;
+  --sidebar: 160 25% 20%;
+  --sidebar-foreground: 42 38% 95%;
+  --sidebar-border: 160 18% 31%;
+  --sidebar-primary: 37 75% 65%;
+  --sidebar-primary-foreground: 218 27% 19%;
+  --sidebar-accent: 160 21% 29%;
+  --sidebar-accent-foreground: 42 38% 95%;
+  --sidebar-ring: 37 75% 65%;
+  --popover: 42 35% 98%;
+  --popover-foreground: 218 27% 19%;
+  --popover-border: 36 20% 83%;
+  --primary: 160 25% 25%;
+  --primary-foreground: 42 38% 95%;
+  --secondary: 37 65% 84%;
+  --secondary-foreground: 218 27% 19%;
+  --muted: 38 24% 89%;
+  --muted-foreground: 218 12% 45%;
+  --accent: 12 54% 79%;
+  --accent-foreground: 218 27% 19%;
+  --destructive: 5 55% 52%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 36 20% 83%;
+  --ring: 160 25% 25%;
+  --chart-1: 160 25% 25%;
+  --chart-2: 37 75% 65%;
+  --chart-3: 12 54% 65%;
+  --chart-4: 204 28% 58%;
+  --chart-5: 82 28% 54%;
+  --app-font-sans: 'DM Sans', sans-serif;
+  --app-font-serif: 'Fraunces', Georgia, serif;
+  --app-font-mono: 'Space Mono', monospace;
+  --radius: 1rem;
+}
+
+
+* { box-sizing: border-box; }
+body { margin: 0; background: #f4f1e9; font-family: 'DM Sans', sans-serif; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+.app-shell { min-height:100dvh; display:grid; grid-template-columns:250px minmax(0,1fr); }
+.sidebar { background:#25443d; color:#f7f2e8; padding:28px 18px; display:flex; flex-direction:column; position:sticky; top:0; height:100dvh; }
+.brand { display:flex; gap:11px; align-items:center; padding:2px 12px 32px; }
+.brand-mark { width:36px;height:36px;border-radius:12px;background:#e8bd76;color:#25443d;display:grid;place-items:center;font-family:'Fraunces';font-weight:700;font-size:20px; }
+.brand-name {font-family:'Fraunces';font-size:18px;line-height:1.05}.brand-name small{display:block;font:10px 'Space Mono';opacity:.7;letter-spacing:.1em;margin-top:5px}
+.nav-label {font:10px 'Space Mono';letter-spacing:.13em;opacity:.56;padding:0 13px;margin:0 0 9px}
+.nav-links {display:grid;gap:5px}.nav-link {color:#e9ede4;text-decoration:none;padding:11px 13px;border-radius:12px;display:flex;align-items:center;gap:12px;font-size:14px;transition:background .18s,transform .18s}.nav-link:hover,.nav-link.active{background:#34584f;transform:translateX(2px)}.nav-icon{width:19px;text-align:center;font-size:17px;color:#e8bd76}
+.sidebar-bottom{margin-top:auto;padding:15px 12px;border-top:1px solid #46635c;font-size:12px;color:#c2d1c9;line-height:1.6}.demo-pill{font:10px 'Space Mono';letter-spacing:.06em;color:#f0d29d}
+.main-area{min-width:0}.topbar{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,56px);border-bottom:1px solid #e2ddd2;background:rgba(248,246,240,.72)}.top-kicker{font:10px 'Space Mono';color:#737b72;letter-spacing:.12em;text-transform:uppercase}.user-chip{display:flex;align-items:center;gap:10px;font-size:13px;color:#344940}.avatar{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#e9c888;color:#25443d;font-weight:700}
+.content{max-width:1220px;margin:auto;padding:42px clamp(20px,4vw,56px) 70px}.eyebrow{font:10px 'Space Mono';letter-spacing:.14em;text-transform:uppercase;color:#a36b46;margin-bottom:14px}.page-title{font:500 clamp(36px,5vw,56px)/1.02 'Fraunces',serif;color:#263a34;letter-spacing:-.03em;margin:0}.intro{color:#72786f;font-size:15px;line-height:1.6;max-width:610px;margin:14px 0 0}
+.hero-panel{position:relative;overflow:hidden;background:#e8bd76;border-radius:26px;padding:34px 38px;margin:26px 0 34px;min-height:232px;display:flex;align-items:center}.hero-panel:after{content:'';position:absolute;width:290px;height:290px;border:1px solid #c18b4e;border-radius:50%;right:5%;top:-64px;box-shadow:0 0 0 25px #e8bd7630,0 0 0 52px #e8bd7630}.hero-copy{position:relative;z-index:1;max-width:650px}.hero-copy h2{font:500 clamp(29px,4vw,42px)/1.08 'Fraunces';color:#25443d;margin:0 0 12px}.hero-copy p{max-width:500px;line-height:1.55;color:#4e594b;margin:0 0 22px}
+.btn{border:0;border-radius:11px;padding:11px 16px;background:#25443d;color:#fbf6ec;font-weight:600;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;transition:transform .18s,background .18s}.btn:hover{transform:translateY(-2px);background:#356054}.btn.secondary{background:#eee8dc;color:#31483e;border:1px solid #ddd4c3}.btn.secondary:hover{background:#e6ddcd}.btn.ghost{background:transparent;color:#315449;padding:8px 11px}.btn.danger{background:#a65348}.btn.small{padding:8px 11px;font-size:12px}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin:32px 0 15px;gap:16px}.section-head h2{font:500 26px 'Fraunces';margin:0;color:#294139}.section-head p{margin:5px 0 0;color:#83877e;font-size:13px}.grid-two{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.tile-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{background:#fbfaf6;border:1px solid #e5dfd3;border-radius:18px;padding:20px;box-shadow:0 8px 24px #4b4c3610}.card-title{font:500 20px 'Fraunces';color:#2a4038;margin:0 0 7px}.card p{color:#71776e;font-size:13px;line-height:1.55;margin:0 0 14px}.mini-stat{font:26px 'Fraunces';color:#365d50}.mini-label{font:10px 'Space Mono';letter-spacing:.1em;text-transform:uppercase;color:#82857d;margin-top:4px}.accent-note{background:#e9e4d6;border-radius:16px;padding:20px;color:#43554a;line-height:1.55;font-size:13px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.field{display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:700;color:#47564d}.field input,.field select,.field textarea,.searchbox{width:100%;border:1px solid #dcd7cc;background:#fffefa;border-radius:10px;padding:11px 12px;color:#293c35;outline:none}.field input:focus,.field select:focus,.field textarea:focus,.searchbox:focus{border-color:#648678;box-shadow:0 0 0 3px #537c6a20}.field textarea{min-height:90px;resize:vertical}.hint{font-size:11px;color:#8a8e84}.form-actions{display:flex;gap:10px;margin-top:20px;align-items:center}.notice{padding:13px 15px;border-radius:12px;background:#e4eee6;color:#315447;font-size:13px;line-height:1.5;margin:16px 0}.notice.warn{background:#f4e9d5;color:#75552c}.notice.error{background:#f3e3df;color:#8b3e35}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.chip{border:1px solid #d8d4c8;border-radius:999px;padding:8px 12px;background:#fbfaf6;color:#657067;font-size:12px}.chip.selected{background:#31574b;border-color:#31574b;color:#fff8e9}.listing{display:grid;gap:12px}.listing-card{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.listing-card h3{font:500 20px 'Fraunces';margin:0 0 5px;color:#2c4239}.meta{font-size:12px;color:#7d827a;margin-bottom:10px}.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:10px;color:#52675c;background:#e9eee7;border-radius:999px;padding:5px 8px}.tag.warm{background:#f4e6cf;color:#816440}.space-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px}.map-card{background:#e5e8dc;border-radius:18px;min-height:290px;position:relative;overflow:hidden;padding:18px;background-image:linear-gradient(28deg,transparent 46%,#f6f2e7 47%,#f6f2e7 51%,transparent 52%),linear-gradient(138deg,transparent 43%,#f6f2e7 44%,#f6f2e7 47%,transparent 48%),linear-gradient(78deg,transparent 63%,#d2ded0 64%,#d2ded0 69%,transparent 70%)}.map-label{font:10px 'Space Mono';letter-spacing:.08em;color:#68766b;background:#f8f6edcc;padding:7px 9px;border-radius:7px;position:absolute}.pin{position:absolute;width:31px;height:31px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);background:#315b4d;border:3px solid #f6e5c5;box-shadow:0 3px 8px #263a3430}.pin:after{content:'';position:absolute;inset:7px;border-radius:50%;background:#f6e5c5}.empty{padding:34px;text-align:center;color:#798178;border:1px dashed #d4cfc2;border-radius:16px}.empty strong{display:block;font:500 20px 'Fraunces';color:#40544a;margin-bottom:6px}
+.tabs{display:flex;gap:5px;border-bottom:1px solid #ddd8cc;margin:20px 0}.tab{padding:10px 13px;background:none;border:0;color:#777f76;font-size:13px;border-bottom:2px solid transparent}.tab.active{color:#2e5145;border-color:#c18450;font-weight:700}.profile-head{display:flex;align-items:center;gap:16px;margin-bottom:24px}.profile-avatar{width:68px;height:68px;border-radius:22px;background:#e7bd7c;display:grid;place-items:center;font:600 28px 'Fraunces';color:#315347}
+.toast-message{position:fixed;bottom:24px;right:24px;z-index:50;background:#25443d;color:#fff8ed;padding:13px 17px;border-radius:12px;box-shadow:0 10px 28px #243b3340;font-size:13px;animation:rise .25s ease-out}.mobile-menu{display:none}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}.page-enter{animation:rise .35s ease-out}
+.modal-backdrop{position:fixed;inset:0;background:#20342f99;z-index:40;display:grid;place-items:center;padding:20px}.modal{width:min(480px,100%);position:relative}.close-button{position:absolute;right:15px;top:15px;border:0;background:transparent;color:#657268;padding:6px}.selected-card{border-color:#628272;box-shadow:0 0 0 2px #62827222}.tag svg{vertical-align:-2px;margin-right:3px}
+@media(max-width:900px){.app-shell{grid-template-columns:76px 1fr}.sidebar{padding:22px 10px}.brand{padding:0 10px 28px}.brand-name,.nav-label,.nav-link span:not(.nav-icon),.sidebar-bottom{display:none}.nav-link{justify-content:center;padding:12px}.nav-icon{font-size:19px}.tile-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.app-shell{display:block}.sidebar{position:fixed;z-index:20;top:auto;bottom:0;left:0;right:0;width:100%;height:66px;padding:6px 8px;flex-direction:row;align-items:center;justify-content:center;border-radius:16px 16px 0 0}.brand,.nav-label,.sidebar-bottom{display:none}.nav-links{display:flex;justify-content:space-around;width:100%;gap:2px}.nav-link{display:grid;gap:2px;padding:7px 6px;font-size:9px;justify-items:center;min-width:49px}.nav-link span:not(.nav-icon){display:block}.nav-icon{font-size:17px}.topbar{height:60px;padding:0 18px}.content{padding:30px 17px 95px}.hero-panel{padding:25px 21px;min-height:250px}.hero-panel:after{right:-150px;top:30px}.grid-two,.space-layout{grid-template-columns:1fr}.tile-grid{grid-template-columns:1fr}.listing-card{flex-direction:column}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.page-title{font-size:39px}.user-chip .user-name{display:none}}
